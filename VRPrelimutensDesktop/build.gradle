@@ -1,0 +1,36 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'vrprelimutensdesktop'
+            keyPassword 'h0495068'
+            storeFile file('C:/Munka/_sajat/BabylonMS_other/android.jks')
+            storePassword 'h0495068'
+        }
+    }
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+    defaultConfig {
+        applicationId 'com.hgplsoft.vrprelimutensdesktop'
+        minSdkVersion 23
+        targetSdkVersion 23
+        versionCode 1
+        versionName '1.0'
+    }
+    productFlavors {
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.config
+        }
+    }
+}
+
+dependencies {
+    compile 'com.google.vr:sdk-base:1.80.0'
+    compile 'org.rajawali3d:rajawali:1.1.970'
+    compile 'com.android.support:support-v4:26.0.0-alpha1'
+    compile 'org.apache.directory.studio:org.apache.commons.lang:2.6'
+    implementation project(':babylonms-debug')
+}
