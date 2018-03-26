@@ -1,1 +1,1 @@
-include ':VRPrelimutensDesktop', ':babylontest', ':babylonms-debug'
+include ':VRPrelimutensDesktop', ':babylonms-debug'
