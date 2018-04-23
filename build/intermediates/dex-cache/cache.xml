@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\horvath3ga\.gradle\caches\transforms-1\files-1.1\babylonms-debug.aar\f1fc952bcd471fca40d95642e597f5b8\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="4bd2279b0f00f414a6b8606b50d097189504532a">
+        <dex dex="C:\Munka\_sajat\BabyonMS3\git\VRPrelimutensDesktop\vrpd_android\VRPrelimutensDesktop\build\intermediates\transforms\preDex\release\14.jar" />
+    </item>
+
+</items>
