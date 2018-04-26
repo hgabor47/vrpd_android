@@ -165,16 +165,17 @@ public class ConnectTask2 {
     double startXRollObj = -1;
     double startYRollObj = -1;
     double startRoll = -1;
-    boolean startvirtualmode = false;
+    boolean startvirtualmode = true;
     Boolean virtualmouse = false;
-    int virtualmouse_type = 0; //default = 0, Left mouse =1 , right = 2
     PDWindow selectedobj;  //Virtual után LEFT
     final int MODEVIRTLEFT=1;
     final int MODEVIRTRIGHT=2;
     final int MODEVIRTMIDDLE=3;
     final int MODEVIRTNONE=0;
+    int virtualmouse_type = MODEVIRTNONE; //default = 0, Left mouse =1 , right = 2
 
     Integer x, y;
+    Integer dxx=0,dyy=0; // LEFT MB can shift the original X,Y
 
     private void processing_controll(BMSPack pack) {
 
@@ -208,34 +209,53 @@ public class ConnectTask2 {
 
             if (virtualmouse) { //xbutton1
                 if (startvirtualmode) {
-                    startRoll = -(Math.toDegrees(Mainview.origo.getRotY()) * 50);
+                    startRoll = dxx-((Math.toDegrees(Mainview.origo.getRotY())) * 50);
                     virtualmouse_type=MODEVIRTNONE;
                     Log.e(APPID, "VirtualMouse:(X,roll)" + String.valueOf(x) + " - " + String.valueOf(Mainview.origo.getRotY()));
                     Log.e(APPID, "MouButt:"+String.valueOf(button));
+                } else {
+//ROLLL SCENE
+                    if (virtualmouse_type == MODEVIRTNONE) {
+                        double rollpos = (x - startRoll) / 50;
+                        Mainview.origo.setRotation(0, rollpos, 0);
+                        Log.e(APPID, "VirtualMouse:(X,roll)" + String.valueOf(x) + " - " + String.valueOf(rollpos));
+                    }
                 }
                 startvirtualmode = false;
 
-                if ((button & VRCEShared.CONST_MOUSEBUTTON_LEFT )!=0) {
-                    if (virtualmouse_type != MODEVIRTLEFT)
+                if (((button & VRCEShared.CONST_MOUSEBUTTON_LEFT )!=0)
+                    &&
+                   (virtualmouse_type != MODEVIRTLEFT))
                     {
                         selectedobj = Mainview.lookedobj;
                         //startXRollObj = -(Math.toDegrees(selectedobj.dummyz.getRotY()) );  OK
-                        startXRollObj = -(Math.toDegrees(selectedobj.dummyy.getRotY()) );  //Az aktuális elfordulás szöge * 50
-                        startYRollObj = -(Math.toDegrees(selectedobj.dummyx.getRotX()) );  //orientationZ
+                        startXRollObj = (x / 20)-(Math.toDegrees(selectedobj.dummyy.getRotY()) );  //Az aktuális elfordulás szöge * 50
+                        startYRollObj = (y / 20)-(Math.toDegrees(selectedobj.dummyx.getRotX()) );  //orientationZ
                         virtualmouse_type = MODEVIRTLEFT;
                         Log.e(APPID, "MOU VIRT+LEFT"+selectedobj.getRotY());
                     }
-                }
-                if (virtualmouse_type == MODEVIRTLEFT){
-                    if (selectedobj!=null){
-                        double dX = (x/20 - startXRollObj) ;
-                        double dY = (y/20 - startYRollObj) ;
-                        Log.e(APPID, "MOU VIRT+LEFT:(Y,roll)" + String.valueOf(y/20) + " - " + String.valueOf(dY)+" || "+(startYRollObj));
-                        //selectedobj.dummyz.setRotY(dX); OK
-                        selectedobj.dummyy.setRotY(dX); //OK
-                        selectedobj.dummyx.setRotZ(dY);
-                        //selectedobj.RotY(dX);
-                        //selectedobj.RotZ(dY);
+                 else {
+                    if ((virtualmouse_type == MODEVIRTLEFT)){
+                        if (state==false) {
+                            Log.e(APPID, "MOU VIRT+LEFT UP"+selectedobj.getRotY());
+                        }
+                        if (state==true) {  //click again LEFT
+                            Log.e(APPID, "MOU VIRT+LEFT DOWN"+selectedobj.getRotY());
+                            startvirtualmode = true;
+                            dxx = x;
+                            dyy = y;
+                        } else {
+                            if (selectedobj != null) {
+                                double dX = (x / 20 - startXRollObj);
+                                double dY = (y / 20 - startYRollObj);
+                                Log.e(APPID, "MOU VIRT+LEFT:(Y,roll)" + String.valueOf(y / 20) + " - " + String.valueOf(dY) + " || " + (startYRollObj));
+                                //selectedobj.dummyz.setRotY(dX); OK
+                                selectedobj.dummyy.setRotY(dX); //OK
+                                selectedobj.dummyx.setRotZ(dY);
+                                //selectedobj.RotY(dX);
+                                //selectedobj.RotZ(dY);
+                            }
+                        }
                     }
 
                 }
@@ -263,11 +283,7 @@ public class ConnectTask2 {
                 if (virtualmouse_type == MODEVIRTRIGHT){
 
                 }
-                if (virtualmouse_type == MODEVIRTNONE) {
-                    double rollpos = (x - startRoll) / 50;
-                    Mainview.origo.setRotation(0, rollpos, 0);
-                    Log.e(APPID, "VirtualMouse:(X,roll)" + String.valueOf(x) + " - " + String.valueOf(rollpos));
-                }
+
             } else { //
                 startvirtualmode = true;
                 //startRoll = Mainview.origo.getRotY();
