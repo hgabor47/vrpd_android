@@ -33,6 +33,10 @@ http://babylonms.com/babylonms/en/projects/vrpdesktop/index.html
 6. Setup the running app and insert the mobile to the VR headset.
 7. Enjoy.
 
+## Library usage
+
+The visualisation is based on Rajawali VR library https://github.com/Rajawali/Rajawali
+
 ## Authors
 
 * **Gabor Horvath** - *Initial work* - [BabylonMessageSwap](https://github.com/hgabor47/babylonms)
