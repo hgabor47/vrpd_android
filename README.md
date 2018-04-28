@@ -14,12 +14,12 @@ http://babylonms.com/babylonms/en/projects/vrpdesktop/index.html
 ## Prerequisites 
 
 ### for usage
--Android table or phone with Android 6.0 or above.
--VR Headset from low price. I use VRBOX2 and Samsung Gear VR (perfect)
+* Android table or phone with Android 6.0 or above.
+* VR Headset from low price. I use VRBOX2 and Samsung Gear VR (perfect)
 
 ### for develop
--Android Studio for develop
--BabylonMS source if you plan to develop BabylonMS (included as LIB in this version) 
+* Android Studio for develop
+* BabylonMS source if you plan to develop BabylonMS (included as LIB in this version) 
 
 ## Deployment
 
