@@ -10,7 +10,7 @@ android {
         }
     }
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId 'com.hgplsoft.vrprelimutensdesktop'
         minSdkVersion 23
@@ -28,9 +28,9 @@ android {
 }
 
 dependencies {
-    compile 'com.google.vr:sdk-base:1.80.0'
-    compile 'org.rajawali3d:rajawali:1.1.970'
-    compile 'com.android.support:support-v4:26.0.0-alpha1'
-    compile 'org.apache.directory.studio:org.apache.commons.lang:2.6'
+    api 'com.google.vr:sdk-base:1.80.0'
+    api 'org.rajawali3d:rajawali:1.1.970'
+    api 'com.android.support:support-v4:26.0.0-alpha1'
+    api 'org.apache.directory.studio:org.apache.commons.lang:2.6'
     implementation project(':babylonms-debug')
 }
