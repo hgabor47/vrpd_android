@@ -294,7 +294,8 @@ public class ConnectTask2 {
                     //Mainview.mouse.mouseTcpClient.sendMessage("<?xml version=\"1.0\" encoding=\"utf-8\"?><head APPNUM=\"0\"><bringtofront handle=\"" + Mainview.selectedobj.Code.toString() + "\"/>  </head>");
                 } else {
                     if ((button & VRCEShared.CONST_MOUSEBUTTON_MASK) == 0) { //NONEBUTTON //kurzor mozgatas
-                        //if (button.compareTo(NoneButton) == 0) { //kurzor mozgatas
+                        ///*oldschool
+
                         if (Mainview.selectedobj != null) {
                             try {
                                 Vector3d v = calculateXMouseCenter(Mainview.selectedobj);
@@ -307,6 +308,9 @@ public class ConnectTask2 {
                             } catch (Exception e4) {
                             }
                         }
+
+
+
                     }
                 }
             }
