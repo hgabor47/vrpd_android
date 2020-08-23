@@ -1,4 +1,4 @@
-[![VRPDlogo](http://babylonms.com/babylonms/en/projects/vrpdesktop/media/vrpdicon.png "VR Prelimutens Desktop")
+[![VRPDlogo](https://prelimutens.com/main/babylonms/babylonmssite/projects/vrpdesktop/media/vrpdicon.png "VR Prelimutens Desktop")
 ](http://babylonms.com/babylonms/en/projects/vrpdesktop/index.html "on WEB")
 HGPLSoft VRPrelimutensDesktop for Android
 =========================================
@@ -6,7 +6,7 @@ HGPLSoft VRPrelimutensDesktop for Android
 **Part of the VRPrelimutensDesktop GITHUB project.** https://github.com/hgabor47/VRPrelimutensDesktop	
 
 	
-With VR Prelimutens Desktop begins a new era. You can place your windows in a limitless and free space. You can use any OS’es, even more than one at the same time. Arrange different computers’ windows in a single 3D place. 	
+With VR Prelimutens Desktop begins a new era. You can place your windows in a limitless and free space. You can use any OSâ€™es, even more than one at the same time. Arrange different computersâ€™ windows in a single 3D place. 	
 You can use same place simultaneously with others, see their avatars and what they are doing at the moment. 	
 Primarily, this application provides help with your work. Develop together while you are working on different files - you only need turn your head to see what the others are doing. If this is not enough we still have plans, knowledge and fantasy       	
 [WEBSite](http://babylonms.com/babylonms/en/projects/vrpdesktop/index.html "on WEB")	
